@@ -1,0 +1,26 @@
+$black: #242323;
+$white: #fff;
+$gray: #F3F4F4;
+$violet: #B6A4FF;
+$yellow: #FFE601;
+$orange: #FF5F00;
+$green: #2AE881;
+
+$radius: 1.5rem;
+$transition: .2s all ease;
+
+@mixin title {
+    font-size: 3rem;
+
+    @media only screen and (max-width: 991px) {
+        font-size: 2rem;
+    }
+}
+
+@mixin content {
+    font-size: 1.5rem;
+
+    @media only screen and (max-width: 991px) {
+        font-size: 1rem;
+    }
+}
