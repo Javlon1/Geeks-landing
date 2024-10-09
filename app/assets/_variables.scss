@@ -1,13 +1,15 @@
-$black: #242323;
+$black: #1E1E1E;
+$light-black: #292929;
 $white: #fff;
-$gray: #F3F4F4;
-$violet: #B6A4FF;
-$yellow: #FFE601;
+$gray: #FFFFFF99;
 $orange: #FF5F00;
+$yellow: #FCE300;
 $green: #2AE881;
+$violet: #B6A4FF;
+$blue: #80B9F1;
 
 $radius: 1.5rem;
-$transition: .2s all ease;
+$transition: .3s all ease;
 
 @mixin title {
     font-size: 3rem;

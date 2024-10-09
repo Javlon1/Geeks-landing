@@ -3,7 +3,6 @@ import Header from './header/Header';
 import ScrollUp from '../ui/scrollUp/scrollUp';
 import Footer from './Footer/Footer';
 
-
 const Layout = ({ children }) => {
     return (
         <div>

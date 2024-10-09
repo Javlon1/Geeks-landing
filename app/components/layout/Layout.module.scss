@@ -1,5 +1,8 @@
-.layout{
+@import "../../assets/variables";
+
+.layout {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
+    background-color: $black;
 }

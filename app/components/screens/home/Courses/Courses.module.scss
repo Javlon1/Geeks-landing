@@ -1,0 +1,307 @@
+@import "../../../../assets/variables";
+
+.courses {
+    padding: 4rem 0;
+
+    &__content {
+        &__title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+
+            img {
+                width: auto;
+                height: 60px;
+            }
+
+            h2 {
+                font-size: 3rem;
+                background-color: $yellow;
+                padding: 0 1rem;
+                color: $black;
+                text-transform: uppercase;
+            }
+        }
+
+        &__list {
+            margin-top: 3rem;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+
+            .span1,
+            .span2 {
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 60%;
+                margin: 1rem 0;
+
+                p {
+                    position: absolute;
+                    width: 95px;
+                    height: 95px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    object-fit: contain;
+                    border-radius: 1rem;
+                    padding: 1rem;
+                    z-index: 1;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: contain;
+                    }
+                }
+            }
+
+            .span1 {
+                p {
+                    &:nth-child(1) {
+                        left: 5%;
+                        background-color: $green;
+                    }
+
+                    &:nth-child(2) {
+                        top: 15%;
+                        right: 5%;
+                        background-color: #F39191;
+                    }
+                }
+            }
+
+            .span2 {
+                p {
+                    &:nth-child(1) {
+                        left: -5%;
+                        top: -5rem;
+                        background-color: $yellow;
+                    }
+
+                    &:nth-child(2) {
+                        right: 0;
+                        bottom: 1rem;
+                        background-color: $orange;
+                    }
+                }
+            }
+
+            &__item {
+                padding: 0 1rem;
+                font-size: 2.3rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                cursor: pointer;
+                transition: $transition;
+
+                &:nth-child(1) {
+                    background-color: $violet;
+                    animation: moveText 5s infinite alternate-reverse ease-in-out;
+                }
+
+                &:nth-child(2) {
+                    animation: moveText 5s infinite alternate ease-in-out;
+                    background-color: $green;
+                }
+
+                &:nth-child(3) {
+                    background-color: $blue;
+                    animation: moveText 5s infinite alternate-reverse ease-in-out;
+                }
+
+                &:nth-child(4) {
+                    background-color: $yellow;
+                    animation: moveText 5s infinite alternate ease-in-out;
+                }
+
+                &:nth-child(5) {
+                    background-color: #F39191;
+                    animation: moveText 5s infinite alternate-reverse ease-in-out;
+                }
+
+                &:nth-child(6) {
+                    background-color: #F2AC89;
+                    animation: moveText 5s infinite alternate ease-in-out;
+                }
+
+                &:nth-child(7) {
+                    background-color: #F39191;
+                    animation: moveText 5s infinite alternate ease-in-out;
+                }
+
+                &:nth-child(8) {
+                    background-color: $violet;
+                    animation: moveText 5s infinite alternate ease-in-out;
+                }
+            }
+        }
+    }
+}
+
+
+@keyframes moveText {
+    0% {
+        transform: translateX(-15%);
+    }
+
+    100% {
+        transform: translateX(15%);
+    }
+}
+
+
+@media only screen and (max-width: 1399px) {
+    .courses {
+        &__content {
+            &__list {
+                .span1 {
+                    p {
+                        &:nth-child(1) {
+                            left: -2%;
+                        }
+
+                        &:nth-child(2) {
+                            right: -5%;
+                        }
+                    }
+                }
+
+                .span2 {
+                    p {
+                        &:nth-child(1) {
+                            left: -5%;
+                            top: -5rem;
+                        }
+
+                        &:nth-child(2) {
+                            right: -3%;
+                            bottom: 1rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1199px) {
+    .courses {
+        &__content {
+            &__list {
+                .span1 {
+                    p {
+                        &:nth-child(1) {
+                            left: -10%;
+                        }
+
+                        &:nth-child(2) {
+                            right: -15%;
+                        }
+                    }
+                }
+
+                .span2 {
+                    p {
+                        &:nth-child(1) {
+                            left: -15%;
+                            top: -5rem;
+                        }
+
+                        &:nth-child(2) {
+                            right: -10%;
+                            bottom: 1rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .courses {
+        padding: 3rem 0;
+
+        &__content {
+            &__title {
+                img {
+                    height: 50px;
+                }
+
+                h2 {
+                    font-size: 2.2rem;
+                }
+            }
+
+            &__list {
+                margin-top: 0rem;
+
+                .span1,
+                .span2 {
+                    width: 80%;
+
+                    p {
+                        width: 80px;
+                        height: 80px;
+                        padding: .7rem;
+                    }
+                }
+
+                &__item {
+                    font-size: 2rem;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .courses {
+        &__content {
+            &__list {
+
+                .span1,
+                .span2 {
+                    width: 80%;
+
+                    p {
+                        width: 70px;
+                        height: 70px;
+                    }
+                }
+
+                &__item {
+                    font-size: 1.7rem;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 575px) {
+    .courses {
+        &__content {
+            &__list {
+
+                .span1,
+                .span2 {
+                    width: 100%;
+
+                    p {
+                        position: static;
+                        width: 60px;
+                        height: 60px;
+                    }
+                }
+
+                &__item {
+                    font-size: 1.5rem;
+                }
+            }
+        }
+    }
+}
