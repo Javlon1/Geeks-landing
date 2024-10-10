@@ -7,6 +7,7 @@ import MyContainer from '@/app/components/ui/MyContainer/MyContainer'
 import phone from '../../../../../public/img/svg/phone.svg'
 import pan from '../../../../../public/img/svg/pan.svg'
 import money from '../../../../../public/img/svg/money.svg'
+import container from '../../../../../public/img/svg/container.svg'
 
 const Statistics = () => {
     const { lan } = React.useContext(Context);
@@ -21,7 +22,7 @@ const Statistics = () => {
             id: 2,
             number: "~7",
             text: "yil tajribaga ega ustozlar",
-            icon: pan,
+            icon: container,
         },
         {
             id: 3,

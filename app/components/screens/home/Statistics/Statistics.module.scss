@@ -113,9 +113,11 @@
 
                     .img {
                         background-color: $violet;
+                        color: $black;
                         transform: rotate(-15deg);
                         top: auto;
                         bottom: 1.5rem;
+                        padding: 0;
                     }
                 }
 

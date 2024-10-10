@@ -6,27 +6,21 @@ import MyContainer from '@/app/components/ui/MyContainer/MyContainer'
 import { useContext, useState } from 'react';
 import question from '../../../../../public/img/svg/question.svg';
 import up from '../../../../../public/img/svg/up.svg';
+
 const Faq = () => {
     const { lan } = useContext(Context);
-    const [openQuestionIndex, setOpenQuestionIndex] = useState(null);  // Для хранения состояния открытого вопроса
+    const [openIndex, setOpenIndex] = useState(null);
 
-    const handleToggle = (index) => {
-        setOpenQuestionIndex(openQuestionIndex === index ? null : index);  // Открыть/закрыть вопрос
+    const toggleFaq = (index) => {
+        setOpenIndex(openIndex === index ? null : index);
     };
 
-    const faqData = [
-        {
-            question: '1. Qanday qilib o’rganmoqchimisiz?',
-            answer: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque, quasi saepe. Unde hic nisi qui.'
-        },
-        {
-            question: '2. Qanday kurslarni tanlash mumkin?',
-            answer: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
-        },
-        {
-            question: '3. Qancha vaqt talab qilinadi?',
-            answer: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-        }
+    const list = [
+        { id: 1, question: "Как начать учиться?", answer: "Lorem ipsum dolor sit amet..." },
+        { id: 2, question: "Как работает платформа?", answer: "Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet..." },
+        { id: 3, question: "Как работает платформа?", answer: "Lorem ipsum dolor sit amet..." },
+        { id: 4, question: "Как работает платформа?", answer: "Lorem ipsum dolor sit amet..." },
+        { id: 5, question: "Как работает платформа?", answer: "Lorem ipsum dolor sit amet..." },
     ];
 
     return (
@@ -42,22 +36,46 @@ const Faq = () => {
                             />
                         </span>
                     </div>
-                    {faqData.map((item, index) => (
-                        <div key={index} className={styles.faq__content__list}>
-                            <div className={styles.faq__content__list__question} onClick={() => handleToggle(index)}>
+                    {list.map((item, index) => (
+                        <div key={item.id} className={styles.faq__content__list}>
+                            <div
+                                data-aos="fade-up"
+                                className={styles.faq__content__list__question}
+                                onClick={() => toggleFaq(index)}
+                                style={{
+                                    borderBottomLeftRadius: openIndex === index ? '0' : '1rem',
+                                    borderBottomRightRadius: openIndex === index ? '0' : '1rem',
+                                    transition: 'all .3s ease',
+                                }}
+                            >
                                 <h3 className={styles.faq__content__list__question__text}>{item.question}</h3>
-                                <span className={styles.icon}>
-                                    <Image
-                                        src={up} 
-                                        alt={openQuestionIndex === index ? 'up' : 'down'}
-                                    />
+                                <span
+                                    className={styles.icon}
+                                    style={{
+                                        transform: openIndex === index ? 'rotate(180deg)' : 'rotate(0deg)',
+                                        transition: 'all .3s ease',
+                                    }}
+                                >
+                                    <Image src={up} alt='toggle icon' />
                                 </span>
                             </div>
-                            {openQuestionIndex === index && ( 
-                                <div className={styles.faq__content__list__answer}>
+
+                            <div
+                                className={styles.faq__content__list__answer}
+                                style={{
+                                    maxHeight: openIndex === index ? '500px' : '0',
+                                    padding: openIndex === index ? '1rem' : '0 1rem',
+                                    overflow: 'hidden',
+                                    transition: 'all .3s ease',
+                                    borderBottomLeftRadius: openIndex === index ? '1rem' : '0',
+                                    borderBottomRightRadius: openIndex === index ? '1rem' : '0',
+                                }}
+                            >
+                                {
+                                    (openIndex === index) &&
                                     <p>{item.answer}</p>
-                                </div>
-                            )}
+                                }
+                            </div>
                         </div>
                     ))}
                 </div>
