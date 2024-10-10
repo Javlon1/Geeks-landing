@@ -73,7 +73,11 @@ const About = () => {
                     <div className={styles.about__content__list}>
                         {
                             data.map(item => (
-                                <div className={styles.about__content__list__item} key={item.id}>
+                                <div
+                                    data-aos="zoom-in"
+                                    className={styles.about__content__list__item}
+                                    key={item.id}
+                                >
                                     <Image
                                         className={styles.about__content__list__item__img}
                                         src={item.img}

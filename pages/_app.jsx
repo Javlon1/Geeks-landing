@@ -2,10 +2,16 @@ import Layout from "@/app/components/layout/Layout";
 import '@/app/assets/globals.scss';
 import { Provider } from "@/app/components/ui/Context/Context";
 import { useEffect } from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 const myApp = ({ Component, pageProps }) => {
-
+    useEffect(() => {
+        AOS.init({
+            duration: 800, once: false
+        })
+    }, [])
     // 
     // useEffect(() => {
     //     const handleContextMenu = (e) => {

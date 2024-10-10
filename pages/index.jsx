@@ -3,6 +3,9 @@ import Head from 'next/head'
 import Intro from '@/app/components/screens/home/Intro/Intro';
 import About from '@/app/components/screens/home/About/About';
 import Courses from '@/app/components/screens/home/Courses/Courses';
+import Communication from '@/app/components/screens/home/Сommunication/Communication';
+import Statistics from '@/app/components/screens/home/Statistics/Statistics';
+import Faq from '@/app/components/screens/home/Faq/Faq';
 
 const Index = () => {
 
@@ -29,6 +32,9 @@ const Index = () => {
             <Intro />
             <About />
             <Courses />
+            <Communication />
+            <Statistics />
+            <Faq />
         </>
     )
 }
