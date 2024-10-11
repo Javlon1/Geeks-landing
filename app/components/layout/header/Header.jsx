@@ -12,7 +12,7 @@ const Header = () => {
 
         {
             id: 1,
-            link: '#course',
+            link: '#courses',
             text: 'Kurslar',
         }, {
             id: 2,
@@ -22,7 +22,7 @@ const Header = () => {
         {
             id: 3,
             link: '#about',
-            text: 'Biz haqidmizda',
+            text: 'Geeks raqamlarda',
         },
         {
             id: 4,
@@ -65,7 +65,7 @@ const Header = () => {
                         <ul className={`${styles.header__content__nav__list} ${nav ? styles.activeList : ''}`}>
                             {
                                 links.map((link) => (
-                                    <li key={link.id} className={styles.header__content__nav__list__item}>
+                                    <li key={link.id} onClick={() => setNav(false)} className={styles.header__content__nav__list__item}>
                                         <Link href={link.link}>{link.text}</Link>
                                     </li>
                                 ))

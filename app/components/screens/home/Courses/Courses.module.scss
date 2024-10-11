@@ -1,7 +1,7 @@
 @import "../../../../assets/variables";
 
 .courses {
-    padding: 4rem 0;
+    padding: 6rem 0;
 
     &__content {
         &__title {
@@ -224,7 +224,7 @@
 
 @media only screen and (max-width: 991px) {
     .courses {
-        padding: 3rem 0;
+        padding: 5rem 0 1rem;
 
         &__content {
             &__title {

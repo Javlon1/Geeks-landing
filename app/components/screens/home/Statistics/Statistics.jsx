@@ -32,7 +32,7 @@ const Statistics = () => {
         },
     ]
     return (
-        <section className={styles.statistics}>
+        <section id='about' className={styles.statistics}>
             <MyContainer>
                 <div className={styles.statistics__content}>
                     <div className={styles.statistics__content__title}>
