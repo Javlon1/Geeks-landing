@@ -45,7 +45,7 @@ const Header = () => {
                             onClick={() => setNav(!nav)}
                             className={`${styles.header__content__nav__logo__btnHam} ${nav ? styles.activeHam : ''}`}
                         ></div>
-                            <Link className={styles.logo} href="/">
+                            <Link onClick={()=> setNav(false)} className={styles.logo} href="/">
                                 <Image
                                     src={logo}
                                     alt="logo"
@@ -53,7 +53,7 @@ const Header = () => {
                                     height={40}
                                 />
                             </Link>
-                            <Link className={styles.resLogo} href="/">
+                            <Link onClick={()=> setNav(false)} className={styles.resLogo} href="/">
                                 <Image
                                     src={resLogo}
                                     alt="logo"
