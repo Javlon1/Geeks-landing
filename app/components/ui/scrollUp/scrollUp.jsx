@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import styles from './scrollUp.module.scss';
-import Image from 'next/image';
 
 const ScrollUp = () => {
     const [isVisible, setIsVisible] = useState(false);
