@@ -39,8 +39,13 @@ const Dino = () => {
         window.addEventListener('keydown', handleKeyPress);
 
         const cactusInterval = setInterval(() => {
-            setCactusArray((prev) => [...prev, generateCactus()]);
-        }, 5000);
+            setCactusArray((prev) => {
+                if (prev.length < 2) {
+                    return [...prev, generateCactus()];
+                }
+                return prev;
+            });
+        }, 1000);
 
         return () => {
             window.removeEventListener('keydown', handleKeyPress);
@@ -69,6 +74,7 @@ const Dino = () => {
 
         return () => runInterval && clearInterval(runInterval);
     }, [isJumping, runIndex]);
+
 
     const code = `JSX
     const [isJumping, setIsJumping] = useState(false);
