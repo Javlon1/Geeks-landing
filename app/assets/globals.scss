@@ -13,15 +13,15 @@
 
 ::-webkit-scrollbar {
     width: .5rem;
-    height: .5rem;
+    height: .2rem;
 }
 
 ::-webkit-scrollbar-track {
-    background: $white;
+    background: $black;
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: $black;
+    background-color: $light-black;
     border-radius: 1rem;
 }
 
