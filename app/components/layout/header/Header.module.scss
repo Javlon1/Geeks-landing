@@ -83,8 +83,8 @@
                 &__logo {
                     &__btnHam {
                         display: block;
-                        width: 1.5rem;
-                        height: 2px;
+                        width: 1.7rem;
+                        height: 3px;
                         background-color: $white;
                         border-radius: 5px;
                         transition: all .5s ease-in-out;
@@ -92,25 +92,25 @@
                         &:before {
                             content: "";
                             position: absolute;
-                            width: 1.5rem;
-                            height: 2px;
+                            width: 1.7rem;
+                            height: 3px;
                             background-color: $white;
                             border-radius: 5px;
                             transition: all .5s ease-in-out;
                             box-shadow: 0 2px 5px rgba(121, 121, 121, 0.2);
-                            transform: translateY(-8px);
+                            transform: translateY(-10px);
                         }
 
                         &:after {
                             content: "";
                             position: absolute;
-                            width: 1.5rem;
-                            height: 2px;
+                            width: 1.7rem;
+                            height: 3px;
                             background-color: $white;
                             border-radius: 5px;
                             transition: all .5s ease-in-out;
                             box-shadow: 0 2px 5px rgba(138, 138, 138, 0.2);
-                            transform: translateY(8px);
+                            transform: translateY(10px);
                         }
                     }
 
