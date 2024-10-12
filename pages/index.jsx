@@ -7,6 +7,7 @@ import Communication from '@/app/components/screens/home/Сommunication/Communic
 import Statistics from '@/app/components/screens/home/Statistics/Statistics';
 import Faq from '@/app/components/screens/home/Faq/Faq';
 import Dino from '@/app/components/screens/home/Dino/Dino';
+import Contact from '@/app/components/screens/home/Contact/Contact';
 
 const Index = () => {
 
@@ -36,6 +37,7 @@ const Index = () => {
             <Communication />
             <Statistics />
             <Faq />
+            <Contact />
             <Dino />
         </>
     )

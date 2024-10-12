@@ -17,7 +17,7 @@ const Faq = () => {
 
     const list = [
         { id: 1, question: "Как начать учиться?", answer: "Lorem ipsum dolor sit amet..." },
-        { id: 2, question: "Как работает платформа?", answer: "Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet..." },
+        { id: 2, question: "Как работает платформа?", answer: "Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amLorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amLorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amLorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet..." },
         { id: 3, question: "Как работает платформа?", answer: "Lorem ipsum dolor sit amet..." },
         { id: 4, question: "Как работает платформа?", answer: "Lorem ipsum dolor sit amet..." },
         { id: 5, question: "Как работает платформа?", answer: "Lorem ipsum dolor sit amet..." },

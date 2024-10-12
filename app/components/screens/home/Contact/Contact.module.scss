@@ -1,0 +1,252 @@
+@import '../../../../assets/variables';
+
+.contact {
+    padding: 7rem 0 4rem;
+
+    &__content {
+        display: flex;
+        gap: 4rem;
+
+        &__left {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            background-color: $light-black;
+            background-image: url('../../../../../public/img/bc/modal-bc1.svg'), url('../../../../../public/img/bc/modal-bc3.svg');
+            background-repeat: no-repeat;
+            background-position: bottom -4px left, top right;
+            padding: 2rem;
+            border-radius: 1rem;
+
+            &__element {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 1rem;
+                padding: 1rem;
+                background-color: $light-black;
+                border-radius: 1rem;
+
+                &__img {
+                    width: 90px;
+                    height: 90px;
+                    padding: .4rem;
+                    border-radius: 1rem;
+
+                    img {
+                        width: 100%;
+                        height: auto;
+                    }
+
+                    background-color: $yellow;
+                }
+
+                &__text {
+                    display: flex;
+                    align-items: start;
+                    justify-content: center;
+                    flex-direction: column;
+
+                    h2 {
+                        font-size: 3rem;
+                        color: $black;
+                        text-transform: uppercase;
+                        font-weight: 700;
+                        padding: .2rem 1rem;
+                    }
+
+                    p {
+                        color: $white;
+                        font-size: 1.2rem;
+                        font-weight: 500;
+                        background-color: #3B3B3B;
+                        padding: .5rem 1rem;
+                    }
+
+                    &:nth-child(2) {
+                        h2 {
+                            background-color: $blue;
+                        }
+                    }
+                }
+            }
+
+            &__text {
+                display: flex;
+                align-items: start;
+                justify-content: center;
+                flex-direction: column;
+
+                h2 {
+                    font-size: 3rem;
+                    color: $black;
+                    text-transform: uppercase;
+                    font-weight: 700;
+                    padding: .2rem 1rem;
+                }
+
+                p {
+                    color: $white;
+                    font-size: 1.2rem;
+                    font-weight: 500;
+                    background-color: #3B3B3B;
+                    padding: .5rem 1rem;
+                }
+
+                &:nth-child(1) {
+                    h2 {
+                        background-color: $green;
+                    }
+                }
+
+                &:nth-child(3) {
+                    h2 {
+                        background-color: $orange;
+                    }
+                }
+            }
+        }
+
+        &__right {
+            flex: 1;
+
+            .form {
+                width: 100%;
+                background-color: $light-black;
+                padding: 2rem 1rem;
+                border-radius: 1rem;
+                display: flex;
+                flex-direction: column;
+                gap: .5rem;
+
+                .inputContainer {
+                    position: relative;
+                    width: 100%;
+                    margin-bottom: 1rem;
+                }
+
+                select {
+                    width: 100%;
+                    padding: .8rem 1rem;
+                    font-size: 1rem;
+                    border: 2px solid #11101666;
+                    border-radius: 1rem;
+                    transition: all 0.3s;
+                    color: $gray;
+                    font-weight: 500;
+                    background-color: $light-black;
+                }
+
+                input {
+                    width: 100%;
+                    padding: .8rem 1rem;
+                    font-size: 1rem;
+                    border: 2px solid #11101666;
+                    border-radius: 1rem;
+                    transition: all 0.3s;
+                    color: $gray;
+                    font-weight: 500;
+                    background-color: $light-black;
+                }
+
+                .placeholder {
+                    position: absolute;
+                    top: 50%;
+                    left: 15px;
+                    transform: translateY(-50%);
+                    font-size: 1rem;
+                    font-weight: 500;
+                    color: $gray;
+                    background-color: $light-black;
+                    padding: 0 5px;
+                    transition: all 0.3s;
+                    pointer-events: none;
+                }
+
+                .active {
+                    transform: translateY(-130%);
+                    margin-top: -12px;
+                    font-size: 12px;
+                    color: $gray;
+                }
+
+                .submitButton {
+                    margin-top: 1rem;
+                    width: 100%;
+                    border-radius: 1rem;
+                    font-size: 1rem;
+                    font-weight: 700;
+                    padding: 0.7rem;
+                    color: $white;
+                    background-color: $orange;
+                    border: 2px solid $orange;
+                    cursor: pointer;
+                    transition: $transition;
+
+                    &:hover {
+                        background-color: $white;
+                        color: $orange;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .contact {
+        padding: 4rem 0;
+
+        &__content {
+            gap: 2rem;
+
+            &__left {
+                padding: 1rem;
+
+                &__element {
+                    padding: .5rem;
+
+                    &__img {
+                        width: 60px;
+                        height: 60px;
+                    }
+
+                    &__text {
+                        h2 {
+                            font-size: 2rem;
+                        }
+
+                        p {
+                            font-size: 1rem;
+                        }
+                    }
+                }
+
+                &__text {
+                    h2 {
+                        font-size: 2rem;
+                    }
+
+                    p {
+                        font-size: 1rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .contact {
+        padding: 4rem 0 1rem;
+
+        &__content {
+            flex-direction: column;
+
+            &__left {
+                width: 100%;
+            }
+        }
+    }
+}
