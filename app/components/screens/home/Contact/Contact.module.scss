@@ -177,17 +177,11 @@
                     border-radius: 1rem;
                     font-size: 1rem;
                     font-weight: 700;
-                    padding: 0.7rem;
-                    color: $white;
-                    background-color: $orange;
-                    border: 2px solid $orange;
+                    padding: 0.8rem;
+                    color: $black;
+                    background-color: $yellow;
+                    border: 0;
                     cursor: pointer;
-                    transition: $transition;
-
-                    &:hover {
-                        background-color: $white;
-                        color: $orange;
-                    }
                 }
             }
         }

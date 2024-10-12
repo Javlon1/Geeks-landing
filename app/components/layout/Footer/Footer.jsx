@@ -13,18 +13,14 @@ const Footer = () => {
             id: 1,
             link: '#courses',
             text: 'Kurslar',
-        }, {
-            id: 2,
-            link: '#mentor',
-            text: 'Mentorlar',
         },
         {
-            id: 3,
+            id: 2,
             link: '#about',
             text: 'Geeks raqamlarda',
         },
         {
-            id: 4,
+            id: 3,
             link: '#contact',
             text: 'Bog’lanish',
         },
