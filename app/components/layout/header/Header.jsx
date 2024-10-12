@@ -1,12 +1,14 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './Header.module.scss';
 import MyContainer from '../../ui/MyContainer/MyContainer';
 import logo from "../../../../public/img/base/logo.png";
 import resLogo from '../../../../public/img/base/res-logo.svg';
+import { Context } from '../../ui/Context/Context';
 
 const Header = () => {
+    const { infoModal, setInfoModal } = useContext(Context)
     const [nav, setNav] = useState(false)
     const [links] = useState([
 
@@ -34,9 +36,10 @@ const Header = () => {
     return (
         <header className={styles.header}>
             <MyContainer>
-                <div className={`${styles.modalOpacity} ${nav ? styles.actModal : ""}`}
+                <div className={`${styles.modalOpacity} ${nav || infoModal ? styles.actModal : ""}`}
                     onClick={() => {
                         setNav(false);
+                        setInfoModal(false)
                     }}
                 ></div>
                 <div className={styles.header__content}>
@@ -45,7 +48,7 @@ const Header = () => {
                             onClick={() => setNav(!nav)}
                             className={`${styles.header__content__nav__logo__btnHam} ${nav ? styles.activeHam : ''}`}
                         ></div>
-                            <Link onClick={()=> setNav(false)} className={styles.logo} href="/">
+                            <Link onClick={() => setNav(false)} className={styles.logo} href="/">
                                 <Image
                                     src={logo}
                                     alt="logo"
@@ -53,7 +56,7 @@ const Header = () => {
                                     height={40}
                                 />
                             </Link>
-                            <Link onClick={()=> setNav(false)} className={styles.resLogo} href="/">
+                            <Link onClick={() => setNav(false)} className={styles.resLogo} href="/">
                                 <Image
                                     src={resLogo}
                                     alt="logo"
@@ -72,7 +75,7 @@ const Header = () => {
                             }
                         </ul>
                     </nav>
-                    <button className={styles.header__content__btn}>O’qishni boshlash</button>
+                    <button onClick={() => setInfoModal(true)} className={styles.header__content__btn}>O’qishni boshlash</button>
                 </div>
             </MyContainer>
         </header>

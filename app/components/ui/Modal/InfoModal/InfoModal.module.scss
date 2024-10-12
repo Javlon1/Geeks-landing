@@ -1,0 +1,253 @@
+@import '../../../../assets/variables';
+
+.infoModal {
+    padding: .5rem;
+    position: fixed;
+    display: flex;
+    gap: 1rem;
+    z-index: 9999;
+    margin: 0 auto;
+    top: 15%;
+    left: 0;
+    right: 0;
+    width: 1000px;
+
+    &__content {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        overflow: hidden;
+        border-radius: 1rem;
+        box-shadow: 0px 0px 6px $violet;
+        background: $violet url('../../../../../public/img/bc/modal-bc1.svg') no-repeat bottom left;
+        padding: 4rem 2rem;
+
+        &__left {
+            width: 55%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            gap: 1.5rem;
+
+            &__title {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                span {
+                    background-color: $yellow;
+                    padding: .2rem 1rem;
+                    font-size: 3rem;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                }
+
+                .img {
+                    display: flex;
+                    margin-left: -15rem;
+
+                    p {
+                        padding: .2rem 1rem;
+                        background-color: $yellow;
+                        font-size: 3rem;
+                        font-weight: 700;
+                        text-transform: uppercase;
+                    }
+
+                    &__span {
+                        width: 65px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        background-color: $orange;
+
+                        img {
+                            width: 100%;
+                            height: auto;
+                            object-fit: cover;
+                        }
+                    }
+                }
+            }
+
+            &__svg {
+                width: 90%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                span {
+                    width: 75px;
+                    height: 75px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 1rem;
+                    padding: 1rem;
+
+                    &:first-child {
+                        background-color: $green;
+                    }
+
+                    &:last-child {
+                        background-color: $blue;
+                    }
+                }
+            }
+
+            &__btn {
+                width: 90%;
+                padding: .7rem 1rem;
+                border-radius: 1rem;
+                border: 0;
+                background-color: $orange;
+                color: $white;
+                font-weight: 600;
+                font-size: 1rem;
+                cursor: pointer;
+            }
+
+            .bc {
+                position: absolute;
+                bottom: -4px;
+                left: 0;
+                right: auto;
+            }
+        }
+
+        &__right {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            gap: 1rem;
+
+            &__element {
+                padding: 1rem;
+                background-color: $light-black;
+                border-radius: 1rem;
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+                align-items: start;
+
+                .title {
+                    color: $black;
+                    font-weight: 700;
+                    font-size: 2rem;
+                    padding: .2rem 1rem;
+                    text-transform: uppercase;
+                    background-color: $blue;
+                }
+
+                &:first-child {
+                    .title {
+                        background-color: $orange;
+                    }
+                }
+
+                &:last-child {
+                    .title {
+                        background-color: $green;
+                    }
+                }
+
+                .text {
+                    color: $gray;
+                }
+            }
+        }
+
+        .close {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            cursor: pointer;
+        }
+    }
+}
+
+@media only screen and (max-width: 1199px) {
+    .infoModal {
+        width: 900px;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .infoModal {
+        width: 767px;
+        top: 10%;
+
+        &__content {
+            padding: 4rem 2rem;
+            flex-direction: column;
+            overflow-y: scroll;
+            height: 70vh;
+
+            &::-webkit-scrollbar-track {
+                background-color: transparent;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background-color: transparent;
+            }
+
+            &__left {
+                width: 100%;
+
+                &__title {
+                    span {
+                        font-size: 2rem;
+                    }
+
+                    .img {
+                        p {
+                            font-size: 2rem;
+                        }
+                    }
+                }
+
+                &__svg {
+                    width: 80%;
+                }
+
+                &__btn {
+                    width: 80%;
+                }
+            }
+
+            &__right {
+                margin-top: 2rem;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .infoModal {
+        width: 90%;
+        top: 10%;
+
+        &__content {
+            &__left {
+                width: 100%;
+
+                &__title {
+                    margin-right: -5rem;
+                }
+
+                &__btn {
+                    width: 90%;
+                }
+            }
+
+            &__right {
+                &__element {
+                    .title {
+                        font-size: 1.5rem;
+                    }
+                }
+            }
+        }
+    }
+}

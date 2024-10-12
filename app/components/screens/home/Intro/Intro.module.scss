@@ -239,6 +239,7 @@
 .bug2 {
     position: absolute;
     cursor: default;
+    z-index: 2;
 
     img {
         object-fit: contain;

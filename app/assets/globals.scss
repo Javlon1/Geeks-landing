@@ -7,13 +7,13 @@
     outline: none;
     box-sizing: border-box;
     font-family: "Montserrat", sans-serif;
-    // user-select: none;
+    user-select: none;
     scroll-behavior: smooth;
 }
 
 
 ::-webkit-scrollbar {
-    width: .5rem;
+    width: .2rem;
     height: .2rem;
 }
 

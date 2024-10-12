@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import Image from 'next/image';
 import styles from './Intro.module.scss'
 import { Context } from '@/app/components/ui/Context/Context';
@@ -8,6 +8,7 @@ import dino from "../../../../../public/img/icons/dino.png";
 import cases from "../../../../../public/img/icons/case.png";
 import bug from "../../../../../public/img/icons/bug.png";
 import Link from 'next/link';
+import InfoModal from '@/app/components/ui/Modal/InfoModal/InfoModal';
 
 const Intro = () => {
     const [position1, setPosition1] = useState({ top: '80%', right: '20%' });
@@ -51,6 +52,7 @@ const Intro = () => {
     return (
         <div className={styles.intro}>
             <MyContainer>
+                <InfoModal />
                 <div className={styles.intro__content}>
                     <ul className={styles.intro__content__list}>
                         {

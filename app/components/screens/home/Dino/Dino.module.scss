@@ -63,6 +63,7 @@
             width: 49%;
             height: 350px;
             overflow-y: scroll;
+            user-select: auto !important;
 
             &::-webkit-scrollbar {
                 width: .2rem;

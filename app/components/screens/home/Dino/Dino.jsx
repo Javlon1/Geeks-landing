@@ -287,7 +287,7 @@ SCSS
                                 </div>
                             </div>
                         </div>
-                        <button className={styles.dinoGame__content__game__btn} onClick={() => jump()}>jump</button>
+                        <button className={styles.dinoGame__content__game__btn} onClick={() => jump()}>sakrash</button>
                     </div>
                     <div className={styles.dinoGame__content__code}>
                         <div className={styles.dinoGame__content__code__content}>
