@@ -1,0 +1,111 @@
+@import "../../../../assets/variables";
+
+.registerModal {
+    padding: .5rem;
+    position: fixed;
+    display: flex;
+    gap: 1rem;
+    z-index: 9999;
+    margin: 0 auto;
+    top: 15%;
+    left: 0;
+    right: 0;
+    width: 400px;
+
+    &__content {
+        width: 100%;
+        border-radius: 1rem;
+        padding: 1rem 1rem 2rem;
+        background-color: $light-black;
+
+        &__title {
+            font-size: 2rem;
+            color: $white;
+            font-weight: 500;
+        }
+
+        .form {
+            margin-top: 2rem;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+
+            .inputContainer {
+                position: relative;
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+
+            select {
+                width: 100%;
+                padding: .8rem 1rem;
+                font-size: 1rem;
+                border: 2px solid #11101666;
+                border-radius: 1rem;
+                transition: all 0.3s;
+                color: $gray;
+                font-weight: 500;
+                background-color: $light-black;
+            }
+
+            input {
+                width: 100%;
+                padding: .8rem 1rem;
+                font-size: 1rem;
+                border: 2px solid #11101666;
+                border-radius: 1rem;
+                transition: all 0.3s;
+                color: $gray;
+                font-weight: 500;
+                background-color: $light-black;
+            }
+
+            .placeholder {
+                position: absolute;
+                top: 50%;
+                left: 15px;
+                transform: translateY(-50%);
+                font-size: 1rem;
+                font-weight: 500;
+                color: $gray;
+                background-color: $light-black;
+                padding: 0 5px;
+                transition: all 0.3s;
+                pointer-events: none;
+            }
+
+            .active {
+                transform: translateY(-130%);
+                margin-top: -12px;
+                font-size: 12px;
+                color: $gray;
+            }
+
+            .submitButton {
+                margin-top: 1rem;
+                width: 100%;
+                border-radius: 1rem;
+                font-size: 1rem;
+                font-weight: 700;
+                padding: 0.8rem;
+                color: $black;
+                background-color: $yellow;
+                border: 0;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 444px) {
+    .registerModal {
+        width: 100%;
+
+        &__content {
+            .form {
+                width: 95%;
+            }
+        }
+    }
+}

@@ -84,9 +84,10 @@ const Contact = () => {
                         </span>
                     </div>
                     <div className={styles.contact__content__right}>
+                        <h2 className={styles.contact__content__right__title}>Ro’yhatdan o’ting</h2>
                         <form className={styles.form}>
                             <div className={styles.inputContainer}>
-                                <select defaultValue={formData.name} onChange={handleChange} id="courses" name="courses">
+                                <select required defaultValue={formData.name} onChange={handleChange} id="courses" name="courses">
                                     <option disabled value="">Yowqew wqe</option>
                                     <option value="1">23123 wqe</option>
                                     <option value="2">yow312312qew wqe</option>

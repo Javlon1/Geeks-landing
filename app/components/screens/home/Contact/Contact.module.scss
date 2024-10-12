@@ -110,12 +110,19 @@
 
         &__right {
             flex: 1;
+            border-radius: 1rem;
+            padding: 1rem 1rem 2rem;
+            background-color: $light-black;
+
+            &__title {
+                font-size: 2rem;
+                color: $white;
+                font-weight: 500;
+            }
 
             .form {
+                margin-top: 2rem;
                 width: 100%;
-                background-color: $light-black;
-                padding: 2rem 1rem;
-                border-radius: 1rem;
                 display: flex;
                 flex-direction: column;
                 gap: .5rem;
@@ -240,6 +247,12 @@
 
             &__left {
                 width: 100%;
+            }
+
+            &__right {
+                &__title {
+                    font-size: 1.3rem;
+                }
             }
         }
     }

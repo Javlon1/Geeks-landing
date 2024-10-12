@@ -8,7 +8,7 @@ import resLogo from '../../../../public/img/base/res-logo.svg';
 import { Context } from '../../ui/Context/Context';
 
 const Header = () => {
-    const { infoModal, setInfoModal } = useContext(Context)
+    const { infoModal, setInfoModal, registerModal, setRegisterModal } = useContext(Context)
     const [nav, setNav] = useState(false)
     const [links] = useState([
 
@@ -32,10 +32,11 @@ const Header = () => {
     return (
         <header className={styles.header}>
             <MyContainer>
-                <div className={`${styles.modalOpacity} ${nav || infoModal ? styles.actModal : ""}`}
+                <div className={`${styles.modalOpacity} ${nav || infoModal || registerModal ? styles.actModal : ""}`}
                     onClick={() => {
                         setNav(false);
                         setInfoModal(false)
+                        setRegisterModal(false)
                     }}
                 ></div>
                 <div className={styles.header__content}>
@@ -71,7 +72,7 @@ const Header = () => {
                             }
                         </ul>
                     </nav>
-                    <button onClick={() => setInfoModal(true)} className={styles.header__content__btn}>O’qishni boshlash</button>
+                    <button onClick={() => setRegisterModal(true)} className={styles.header__content__btn}>O’qishni boshlash</button>
                 </div>
             </MyContainer>
         </header>

@@ -9,6 +9,7 @@ import cases from "../../../../../public/img/icons/case.png";
 import bug from "../../../../../public/img/icons/bug.png";
 import Link from 'next/link';
 import InfoModal from '@/app/components/ui/Modal/InfoModal/InfoModal';
+import RegisterModal from '@/app/components/ui/Modal/RegisterModal/RegisterModal';
 
 const Intro = () => {
     const [position1, setPosition1] = useState({ top: '80%', right: '20%' });
@@ -53,6 +54,7 @@ const Intro = () => {
         <div className={styles.intro}>
             <MyContainer>
                 <InfoModal />
+                <RegisterModal />
                 <div className={styles.intro__content}>
                     <ul className={styles.intro__content__list}>
                         {

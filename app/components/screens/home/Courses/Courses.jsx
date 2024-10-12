@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import Image from 'next/image'
 import styles from './Courses.module.scss'
 import { Context } from '@/app/components/ui/Context/Context';
@@ -12,7 +11,7 @@ import usb from '../../../../../public/img/svg/usb.svg'
 
 
 const Courses = () => {
-    const { setInfoModal } = useContext(Context);
+    const { setRegisterModal } = useContext(Context);
 
     const courses = [
         {
@@ -75,7 +74,7 @@ const Courses = () => {
                         </span>
                         {
                             courses.map((item) => (
-                                <p onClick={() => setInfoModal(true)} className={styles.courses__content__list__item} key={item.id}>
+                                <p onClick={() => setRegisterModal(true)} className={styles.courses__content__list__item} key={item.id}>
                                     {item.text}
                                 </p>
                             ))
