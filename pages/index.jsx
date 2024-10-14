@@ -20,6 +20,7 @@ const Index = () => {
                 <meta name="description" content="GEEKS - учебный центр для будущих IT-специалистов. Современные курсы программирования, data science и digital marketing." />
                 <meta name="keywords" content="GEEKS, IT-курсы, программирование, digital marketing, data science, веб-разработка" />
                 <meta name="image_src" content='' /> // URL для img
+                <link rel="canonical" href="https://geeks-landing.vercel.app/" />
 
                 <meta property="og:title" content="GEEKS - Учебный центр для будущих IT-профессионалов" />
                 <meta property="og:description" content="Изучи востребованные навыки программирования и начни карьеру в IT c GEEKS!" />
@@ -29,7 +30,7 @@ const Index = () => {
                 <meta property="og:site_name" content="GEEKS" /> // Название сайта
                 <meta property="og:locale" content="ru_RU" />
 
-                <title>GEEKS</title>
+                <title>GEEKS Andijan</title>
             </Head>
 
             <Intro />
