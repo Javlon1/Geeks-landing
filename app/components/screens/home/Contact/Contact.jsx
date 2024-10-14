@@ -86,7 +86,7 @@ const Contact = () => {
                     <div className={styles.contact__content__right}>
                         <h2 className={styles.contact__content__right__title}>Ro’yhatdan o’ting</h2>
                         <form className={styles.form}>
-                            <div className={styles.inputContainer}>
+                            <label className={styles.inputContainer}>
                                 <select required defaultValue={formData.name} onChange={handleChange} id="courses">
                                     <option disabled value="">Yowqew wqe</option>
                                     <option value="1">23123 wqe</option>
@@ -94,7 +94,7 @@ const Contact = () => {
                                     <option value="3">yowqe222w wqe</option>
                                     <option value="4">yowq32122ew wqe</option>
                                 </select>
-                            </div>
+                            </label>
                             <div className={styles.inputContainer}>
                                 <input
                                     type="text"
