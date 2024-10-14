@@ -4,10 +4,10 @@ import styles from './RegisterModal.module.scss'
 import { Context } from '@/app/components/ui/Context/Context';
 import MyContainer from '@/app/components/ui/MyContainer/MyContainer'
 import { useContext, useState } from 'react';
-
+import close from '../../../../../public/img/svg/X.svg';
 
 const RegisterModal = () => {
-    const { registerModal } = useContext(Context);
+    const { registerModal, setRegisterModal, act, setAct } = useContext(Context);
     const [formData, setFormData] = useState({ name: '', courses: 0, age: "", phone: '' });
     const [focused, setFocused] = useState({ name: false, age: false, phone: false });
 
@@ -63,17 +63,32 @@ const RegisterModal = () => {
                 <div className={styles.registerModal}>
                     <MyContainer>
                         <div className={styles.registerModal__content}>
+                            <span
+                                className={styles.registerModal__content__close}
+                                onClick={() => {
+                                    setRegisterModal(false)
+                                    setAct(true)
+                                }}
+                            >
+                                <Image
+                                    src={close}
+                                    alt='close'
+                                />
+                            </span>
                             <h2 className={styles.registerModal__content__title}>Ro’yhatdan o’ting</h2>
                             <form className={styles.form}>
-                                <div className={styles.inputContainer}>
-                                    <select required defaultValue={formData.name} onChange={handleChange} id="courses" name="courses">
-                                        <option disabled value="">Yowqew wqe</option>
-                                        <option value="1">23123 wqe</option>
-                                        <option value="2">yow312312qew wqe</option>
-                                        <option value="3">yowqe222w wqe</option>
-                                        <option value="4">yowq32122ew wqe</option>
-                                    </select>
-                                </div>
+                                {
+                                    act &&
+                                    <div className={styles.inputContainer}>
+                                        <select required defaultValue={formData.name} onChange={handleChange} id="courses" name="courses">
+                                            <option disabled value="">Yowqew wqe</option>
+                                            <option value="1">23123 wqe</option>
+                                            <option value="2">yow312312qew wqe</option>
+                                            <option value="3">yowqe222w wqe</option>
+                                            <option value="4">yowq32122ew wqe</option>
+                                        </select>
+                                    </div>
+                                }
                                 <div className={styles.inputContainer}>
                                     <input
                                         type="text"

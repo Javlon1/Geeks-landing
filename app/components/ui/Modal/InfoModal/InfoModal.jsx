@@ -9,7 +9,7 @@ import close from '../../../../../public/img/svg/X.svg'
 import { useContext, useState } from 'react';
 
 const InfoModal = () => {
-    const { infoModal, setInfoModal } = useContext(Context);
+    const { infoModal, setInfoModal, setRegisterModal, setAct } = useContext(Context);
 
     const [data, setData] = useState([
         {
@@ -65,7 +65,14 @@ const InfoModal = () => {
                                     />
                                 </span>
                             </div>
-                            <button className={styles.infoModal__content__left__btn}>Joy band qilish</button>
+                            <button
+                                className={styles.infoModal__content__left__btn}
+                                onClick={() => {
+                                    setInfoModal(false)
+                                    setRegisterModal(true)
+                                    setAct(false)
+                                }}
+                            >Joy band qilish</button>
                         </div>
                         <div className={styles.infoModal__content__right}>
                             {
@@ -77,7 +84,13 @@ const InfoModal = () => {
                                 ))
                             }
                         </div>
-                        <span onClick={() => { setInfoModal(false) }} className={styles.close}>
+                        <span
+                            className={styles.close}
+                            onClick={() => {
+                                setInfoModal(false)
+                                setAct(true)
+                            }}
+                        >
                             <Image
                                 src={close}
                                 alt='close'

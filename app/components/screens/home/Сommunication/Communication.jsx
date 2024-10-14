@@ -7,7 +7,7 @@ import { useContext } from 'react';
 import check from "../../../../../public/img/icons/check.svg"
 
 const Communication = () => {
-    const { lan } = useContext(Context);
+    const { setRegisterModal } = useContext(Context);
     const list = [
         {
             id: 1,
@@ -71,7 +71,7 @@ const Communication = () => {
                         <h2 className={styles.communication__content__right__title}>Bilim ol</h2>
                         <b className={styles.communication__content__right__subtitle}>Geeks jamoasiga qo’shil, IT-karyerangni qur !</b>
                         <p className={styles.communication__content__right__text}>Kuchli mutaxasislar jamoasi, aktual o’quv rejalar, imtihonlar va hakatonlar orqali sifatli bilim ol.</p>
-                        <button className={styles.communication__content__right__btn}>Ro’yhatdan o’tish</button>
+                        <button onClick={() => { setRegisterModal(true) }} className={styles.communication__content__right__btn}>Ro’yhatdan o’tish</button>
                     </div>
                 </div>
             </MyContainer>

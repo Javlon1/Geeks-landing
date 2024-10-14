@@ -8,7 +8,7 @@ import resLogo from '../../../../public/img/base/res-logo.svg';
 import { Context } from '../../ui/Context/Context';
 
 const Header = () => {
-    const { infoModal, setInfoModal, registerModal, setRegisterModal } = useContext(Context)
+    const { infoModal, setInfoModal, registerModal, setRegisterModal,setAct } = useContext(Context)
     const [nav, setNav] = useState(false)
     const [links] = useState([
 
@@ -37,6 +37,7 @@ const Header = () => {
                         setNav(false);
                         setInfoModal(false)
                         setRegisterModal(false)
+                        setAct(true)
                     }}
                 ></div>
                 <div className={styles.header__content}>

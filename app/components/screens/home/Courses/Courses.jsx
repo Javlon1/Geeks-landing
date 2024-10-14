@@ -11,7 +11,7 @@ import usb from '../../../../../public/img/svg/usb.svg'
 
 
 const Courses = () => {
-    const { setRegisterModal } = useContext(Context);
+    const { setInfoModal } = useContext(Context);
 
     const courses = [
         {
@@ -74,7 +74,7 @@ const Courses = () => {
                         </span>
                         {
                             courses.map((item) => (
-                                <p onClick={() => setRegisterModal(true)} className={styles.courses__content__list__item} key={item.id}>
+                                <p onClick={() => setInfoModal(true)} className={styles.courses__content__list__item} key={item.id}>
                                     {item.text}
                                 </p>
                             ))

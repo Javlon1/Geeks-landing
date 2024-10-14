@@ -6,6 +6,7 @@ function Provider({ children }) {
     const [close, setClose] = useState(false);
     const [infoModal, setInfoModal] = useState(false);
     const [registerModal, setRegisterModal] = useState(false);
+    const [act, setAct] = useState(true);
 
     const [lan, setLan] = useState(() => {
         const storedLanguage = typeof window !== 'undefined' ? window.localStorage.getItem('lan') : null;
@@ -24,7 +25,8 @@ function Provider({ children }) {
             lan, setLan,
             close, setClose,
             infoModal, setInfoModal,
-            registerModal, setRegisterModal
+            registerModal, setRegisterModal,
+            act, setAct
 
         }}>
             {children}

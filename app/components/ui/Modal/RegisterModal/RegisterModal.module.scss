@@ -17,9 +17,31 @@
         border-radius: 1rem;
         padding: 1rem 1rem 2rem;
         background-color: $light-black;
+        position: relative;
+
+        &__close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: .3rem;
+            background-color: $orange;
+            width: 30px;
+            height: 30px;
+            border-radius: .5rem;
+
+            img {
+                width: 100%;
+                height: auto;
+                object-fit: contain;
+            }
+        }
 
         &__title {
-            font-size: 2rem;
+            font-size: 1.5rem;
             color: $white;
             font-weight: 500;
         }
