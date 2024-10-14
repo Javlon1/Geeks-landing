@@ -80,7 +80,7 @@ const RegisterModal = () => {
                                 {
                                     act &&
                                     <div className={styles.inputContainer}>
-                                        <select required defaultValue={formData.name} onChange={handleChange} id="courses" name="courses">
+                                        <select required defaultValue={formData.name} onChange={handleChange} id="courses">
                                             <option disabled value="">Yowqew wqe</option>
                                             <option value="1">23123 wqe</option>
                                             <option value="2">yow312312qew wqe</option>
