@@ -6,6 +6,11 @@
     position: relative;
     overflow: hidden;
 
+    h1 {
+        color: transparent;
+        font-size: .01px;
+    }
+
     &__content {
         display: flex;
         align-items: center;

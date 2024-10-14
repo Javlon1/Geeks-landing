@@ -8,6 +8,8 @@ import Statistics from '@/app/components/screens/home/Statistics/Statistics';
 import Faq from '@/app/components/screens/home/Faq/Faq';
 import Dino from '@/app/components/screens/home/Dino/Dino';
 import Contact from '@/app/components/screens/home/Contact/Contact';
+import favicon from '../public/img/base/res-logo.svg'
+
 
 const Index = () => {
 
@@ -15,13 +17,13 @@ const Index = () => {
         <>
             <Head>
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <link rel="icon" href="/favicon.ico" />
-                <meta name="description" content="" /> // Описание страницы
-                <meta name="keywords" content="" /> // ключевые слова, страницы
-                <meta name="image_src" content="" /> // URL для img
+                <link rel="icon" href={favicon} />
+                <meta name="description" content="GEEKS - учебный центр для будущих IT-специалистов. Современные курсы программирования, data science и digital marketing." />
+                <meta name="keywords" content="GEEKS, IT-курсы, программирование, digital marketing, data science, веб-разработка" />
+                <meta name="image_src" content={favicon} /> // URL для img
 
-                <meta property="og:title" content="GEEKS" /> // Название страницы
-                <meta property="og:description" content="" /> // Описание страницы
+                <meta property="og:title" content="GEEKS - Учебный центр для будущих IT-профессионалов" />
+                <meta property="og:description" content="Изучи востребованные навыки программирования и начни карьеру в IT c GEEKS!" />
                 <meta property="og:image" content="" /> // URL для img: https://example.com/image.jpg
                 <meta property="og:url" content="" /> // оснавное URL: https://example.com/page-url
                 <meta property="og:type" content="website" />

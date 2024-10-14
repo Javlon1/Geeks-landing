@@ -52,6 +52,7 @@ const Intro = () => {
 
     return (
         <div className={styles.intro}>
+            <h1>Geeks Andijan</h1>
             <MyContainer>
                 <InfoModal />
                 <RegisterModal />
