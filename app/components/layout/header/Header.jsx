@@ -14,7 +14,7 @@ const Header = () => {
 
         {
             id: 1,
-            link: '#courses',
+            link: '#course',
             text: 'Kurslar',
         },
         {

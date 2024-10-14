@@ -45,7 +45,7 @@ const Courses = () => {
     ]
 
     return (
-        <section id='courses' className={styles.courses}>
+        <section id='course' className={styles.courses}>
             <MyContainer>
                 <div className={styles.courses__content}>
                     <div className={styles.courses__content__title}>
