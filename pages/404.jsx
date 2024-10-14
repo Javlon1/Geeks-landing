@@ -16,5 +16,10 @@ const PageNotFound = () => {
         </>
     )
 }
+export const getServerSideProps = async (context) => {
+    return {
+        notFound: true,
+    };
+};
 
 export default PageNotFound; 
