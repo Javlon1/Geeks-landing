@@ -166,27 +166,6 @@
         &__content {
             &__list2 {
                 &__item {
-                    width: 48%;
-
-                    .text {
-                        font-size: 1rem;
-                    }
-
-                    .icon {
-                        width: 60px;
-                        height: 60px;
-                    }
-                }
-            }
-        }
-    }
-}
-
-@media only screen and (max-width: 575px) {
-    .forWho {
-        &__content {
-            &__list2 {
-                &__item {
                     width: 100%;
                 }
             }
