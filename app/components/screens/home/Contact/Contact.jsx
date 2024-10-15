@@ -4,12 +4,23 @@ import styles from './Contact.module.scss'
 import { Context } from '@/app/components/ui/Context/Context';
 import MyContainer from '@/app/components/ui/MyContainer/MyContainer'
 import heart from '../../../../../public/img/svg/heart.svg';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
 const Contact = () => {
-    const { lan } = useContext(Context);
-    const [formData, setFormData] = useState({ name: '', courses: 0, age: "", phone: '' });
+    const {
+        url,
+        infoModal,
+        setMessage,
+        registerModal,
+        setMessageType,
+        setMessageText,
+        setCoursesId,
+    } = useContext(Context);
+    const [formData, setFormData] = useState({ name: '', courses: '', age: "", phone: '' });
     const [focused, setFocused] = useState({ name: false, age: false, phone: false });
+    const [loader, setLoader] = useState(true)
+    const [loaderForm, setLoaderForm] = useState(false)
+    const [coursesData, setCoursesData] = useState([]);
 
     const formatPhoneNumber = (number) => {
         let newValue = number.replace(/\D/g, '');
@@ -54,8 +65,94 @@ const Contact = () => {
         }
     };
 
-    console.log(formData);
+    useEffect(() => {
+        const fullUrl = `${url}/courses/`;
+        const fetchData = async () => {
+            try {
+                const response = await fetch(fullUrl, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                });
 
+                if (!response.ok) {
+                    throw new Error(`Ошибка: ${response.status}`);
+                }
+
+                const data = await response.json();
+
+                console.log(data);
+
+                if (data.message.status === "success") {
+                    setCoursesData(data.data);
+                    setLoader(false);
+                } else {
+                    console.error('Ошибка: Некорректные данные получены от сервера.');
+                }
+
+            } catch (error) {
+                console.error('Ошибка при запросе данных:', error.message);
+            }
+        };
+
+        fetchData();
+    }, [infoModal, registerModal]);
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        const fullUrl = `${url}/leads/`;
+
+        if (formData.phone.replace(/\s/g, '').length === 12) {
+            setLoaderForm(true)
+
+            try {
+                const response = await fetch(fullUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        course: formData.courses ? formData.courses : coursesId,
+                        first_name: formData.name,
+                        age: formData.age,
+                        phone_number: formData.phone.replace(/\s/g, ''),
+                    }),
+                });
+
+                const data = await response.json();
+
+                console.log(data);
+
+                if (data.message.status === 'success') {
+                    setMessage(true);
+                    setMessageType(data.message.status);
+                    setMessageText(data.message.text);
+                    setLoaderForm(false)
+
+                    setFormData({ name: '', courses: '', age: "", phone: '' });
+                    setCoursesId(0)
+
+                } else {
+                    setMessage(true);
+                    setMessageType(data.message.status);
+                    setMessageText(data.message.text);
+                }
+            } catch (error) {
+                console.error('Error during POST request:', error);
+                setMessage(true);
+                setMessageType('error');
+                setMessageText(error.message);
+            } finally {
+                setLoader(false);
+            }
+        } else {
+            setMessage(true);
+            setMessageType('warning');
+            setMessageText('Telefon raqamingizni to\'g\'ri kiriting!');
+        }
+    };
 
     return (
         <section id='contact' className={styles.contact}>
@@ -85,14 +182,25 @@ const Contact = () => {
                     </div>
                     <div className={styles.contact__content__right}>
                         <h2 className={styles.contact__content__right__title}>Ro’yhatdan o’ting</h2>
-                        <form className={styles.form}>
+                        <form onSubmit={handleSubmit} className={styles.form}>
                             <label className={styles.inputContainer} htmlFor="courses">
                                 <select required defaultValue={formData.name} onChange={handleChange} id="courses">
-                                    <option disabled value="">Yowqew wqe</option>
-                                    <option value="1">23123 wqe</option>
-                                    <option value="2">yow312312qew wqe</option>
-                                    <option value="3">yowqe222w wqe</option>
-                                    <option value="4">yowq32122ew wqe</option>
+                                    <option disabled value="">Yo'nalishni tanlang</option>
+                                    {
+                                        !loader ? (
+                                            coursesData?.map((item, key) => (
+                                                <option key={key} value={item.id}>{item.title}</option>
+                                            ))
+                                        ) : (
+                                            <div className={styles.skeleton__list}>
+                                                <div className={styles.skeleton__list__item}>p</div>
+                                                <div className={styles.skeleton__list__item}>p</div>
+                                                <div className={styles.skeleton__list__item}>p</div>
+                                                <div className={styles.skeleton__list__item}>p</div>
+                                                <div className={styles.skeleton__list__item}>p</div>
+                                            </div>
+                                        )
+                                    }
                                 </select>
                             </label>
                             <div className={styles.inputContainer}>
@@ -146,7 +254,15 @@ const Contact = () => {
                                     Telefon raqamingizni
                                 </label>
                             </div>
-                            <button type="submit" className={styles.submitButton}>Joy band qilish</button>
+                            {
+                                loaderForm ? (
+                                    <div className={styles.load__btn}>
+                                        <span className={styles.load__btn__loader}></span>
+                                    </div>
+                                ) : (
+                                    <button type="submit" className={styles.submitButton}>Joy band qilish</button>
+                                )
+                            }
                         </form>
                     </div>
                 </div>

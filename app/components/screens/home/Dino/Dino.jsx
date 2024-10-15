@@ -7,9 +7,9 @@ import MyContainer from '@/app/components/ui/MyContainer/MyContainer';
 import cloud from '../../../../../public/img/dino/cloud.png';
 import ground from '../../../../../public/img/dino/ground.png';
 import cactusImg from '../../../../../public/img/dino/cactus.png';
-import dinoStationary from '../../../../../public/img/dino/dino-stationary.png';
-import dinoRun0 from '../../../../../public/img/dino/dino-run-0.png';
-import dinoRun1 from '../../../../../public/img/dino/dino-run-1.png';
+import dinoStationary from '../../../../../public/img/dino/dino-3.png';
+import dinoRun0 from '../../../../../public/img/dino/dino-1.png';
+import dinoRun1 from '../../../../../public/img/dino/dino-2.png';
 
 const Dino = () => {
     const [isJumping, setIsJumping] = useState(false);

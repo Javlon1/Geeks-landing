@@ -13,6 +13,7 @@
     width: 1000px;
 
     &__content {
+        width: 100%;
         display: flex;
         justify-content: space-between;
         gap: 1rem;
@@ -41,6 +42,7 @@
                     font-size: 3rem;
                     font-weight: 700;
                     text-transform: uppercase;
+                    text-wrap: nowrap;
                 }
 
                 .img {
@@ -119,7 +121,7 @@
         &__right {
             display: flex;
             flex-direction: column;
-            flex: 1;
+            width: 48%;
             gap: 1rem;
 
             &__element {
@@ -164,6 +166,20 @@
             right: 30px;
             cursor: pointer;
         }
+    }
+}
+
+.skeleton__list {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    flex-direction: column;
+
+    &__item {
+        width: 250px;
+        height: 40px;
+        color: transparent;
+        @include skeleton;
     }
 }
 
@@ -217,6 +233,7 @@
             }
 
             &__right {
+                width: 100%;
                 margin-top: 2rem;
             }
         }

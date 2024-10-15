@@ -6,28 +6,55 @@ import svg1 from '../../../../../public/img/svg/komp2.svg'
 import svg2 from '../../../../../public/img/svg/heart.svg'
 import svg3 from '../../../../../public/img/svg/system.svg'
 import close from '../../../../../public/img/svg/X.svg'
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
 const InfoModal = () => {
-    const { infoModal, setInfoModal, setRegisterModal, setAct } = useContext(Context);
+    const {
+        url,
+        setAct,
+        infoModal,
+        coursesId,
+        setInfoModal,
+        registerModal,
+        setRegisterModal,
+    } = useContext(Context);
 
-    const [data, setData] = useState([
-        {
-            id: 1,
-            title: "Qurilmalar",
-            text: "Kompyuterdan va uning qurilmalaridan foydalanishni o’rganish, dasturlar o’rnatish va ishlash. Standart qurilmalar va"
-        },
-        {
-            id: 2,
-            title: "Foydalanish",
-            text: "Лучшие 50 участников в каждом треке получат электронные сертификаты участника второго сезона CodeRun."
-        },
-        {
-            id: 3,
-            title: "Ustunlik",
-            text: "Упрощённая схема собеседований в Яндекс для 20 лучших участников каждого трека."
-        },
-    ])
+    const [loader, setLoader] = useState(true);
+    const [coursesData, setCoursesData] = useState([]);
+
+    console.log(coursesId);
+
+    useEffect(() => {
+        const fullUrl = `${url}/courses?id=${coursesId}`;
+        const fetchData = async () => {
+            try {
+                const response = await fetch(fullUrl, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                });
+
+                if (!response.ok) {
+                    throw new Error(`Ошибка: ${response.status}`);
+                }
+
+                const data = await response.json();
+
+                if (data.message.status === "success") {
+                    setCoursesData(data.data);
+                    setLoader(false);
+                } else {
+                    console.error('Ошибка: Некорректные данные получены от сервера.');
+                }
+
+            } catch (error) {
+                console.error('Ошибка при запросе данных:', error.message);
+            }
+        };
+
+        fetchData();
+    }, [infoModal, registerModal]);
 
     return (
         <>
@@ -37,7 +64,7 @@ const InfoModal = () => {
                     <div className={styles.infoModal__content}>
                         <div className={styles.infoModal__content__left}>
                             <div className={styles.infoModal__content__left__title}>
-                                <span>Kompyuterni</span>
+                                <span>{coursesData[0]?.title}ni</span>
                                 <div className={styles.img}>
                                     <p>
                                         0 dan
@@ -76,12 +103,21 @@ const InfoModal = () => {
                         </div>
                         <div className={styles.infoModal__content__right}>
                             {
-                                data?.map((item) => (
-                                    <div key={item.id} className={styles.infoModal__content__right__element}>
-                                        <h2 className={styles.title}>{item.title}</h2>
-                                        <p className={styles.text}>{item.text}</p>
+                                !loader ? (
+                                    coursesData[0]?.coursedescription?.map((item) => (
+                                        <div key={item.id} className={styles.infoModal__content__right__element}>
+                                            <h2 className={styles.title}>{item.title}</h2>
+                                            <p className={styles.text}>{item.description}</p>
+                                        </div>
+                                    ))
+
+                                ) : (
+                                    <div className={styles.skeleton__list}>
+                                        <div className={styles.skeleton__list__item}>p</div>
+                                        <div className={styles.skeleton__list__item}>p</div>
+                                        <div className={styles.skeleton__list__item}>p</div>
                                     </div>
-                                ))
+                                )
                             }
                         </div>
                         <span

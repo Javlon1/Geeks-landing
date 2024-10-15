@@ -3,13 +3,28 @@ import Image from 'next/image'
 import styles from './RegisterModal.module.scss'
 import { Context } from '@/app/components/ui/Context/Context';
 import MyContainer from '@/app/components/ui/MyContainer/MyContainer'
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import close from '../../../../../public/img/svg/X.svg';
 
 const RegisterModal = () => {
-    const { registerModal, setRegisterModal, act, setAct } = useContext(Context);
-    const [formData, setFormData] = useState({ name: '', courses: 0, age: "", phone: '' });
+    const {
+        url,
+        act,
+        setAct,
+        infoModal,
+        coursesId,
+        setMessage,
+        setCoursesId,
+        registerModal,
+        setMessageType,
+        setMessageText,
+        setRegisterModal,
+    } = useContext(Context);
+    const [formData, setFormData] = useState({ name: '', courses: '', age: "", phone: '' });
     const [focused, setFocused] = useState({ name: false, age: false, phone: false });
+    const [loader, setLoader] = useState(true)
+    const [loaderForm, setLoaderForm] = useState(false)
+    const [coursesData, setCoursesData] = useState([]);
 
     const formatPhoneNumber = (number) => {
         let newValue = number.replace(/\D/g, '');
@@ -54,7 +69,96 @@ const RegisterModal = () => {
         }
     };
 
-    console.log(formData);
+
+    useEffect(() => {
+        const fullUrl = `${url}/courses/`;
+        const fetchData = async () => {
+            try {
+                const response = await fetch(fullUrl, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                });
+
+                if (!response.ok) {
+                    throw new Error(`Ошибка: ${response.status}`);
+                }
+
+                const data = await response.json();
+
+                console.log(data);
+
+                if (data.message.status === "success") {
+                    setCoursesData(data.data);
+                    setLoader(false);
+                } else {
+                    console.error('Ошибка: Некорректные данные получены от сервера.');
+                }
+
+            } catch (error) {
+                console.error('Ошибка при запросе данных:', error.message);
+            }
+        };
+
+        fetchData();
+    }, [infoModal, registerModal]);
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        const fullUrl = `${url}/leads/`;
+
+        if (formData.phone.replace(/\s/g, '').length === 12) {
+            setLoaderForm(true)
+
+            try {
+                const response = await fetch(fullUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        course: formData.courses ? formData.courses : coursesId,
+                        first_name: formData.name,
+                        age: formData.age,
+                        phone_number: formData.phone.replace(/\s/g, ''),
+                    }),
+                });
+
+                const data = await response.json();
+
+                console.log(data);
+
+                if (data.message.status === 'success') {
+                    setMessage(true);
+                    setMessageType(data.message.status);
+                    setMessageText(data.message.text);
+                    setLoaderForm(false)
+
+                    setFormData({ name: '', courses: '', age: "", phone: '' });
+                    setCoursesId(0)
+                    setRegisterModal(false)
+
+                } else {
+                    setMessage(true);
+                    setMessageType(data.message.status);
+                    setMessageText(data.message.text);
+                }
+            } catch (error) {
+                console.error('Error during POST request:', error);
+                setMessage(true);
+                setMessageType('error');
+                setMessageText(error.message);
+            } finally {
+                setLoader(false);
+            }
+        } else {
+            setMessage(true);
+            setMessageType('warning');
+            setMessageText('Telefon raqamingizni to\'g\'ri kiriting!');
+        }
+    };
 
     return (
         <>
@@ -76,16 +180,27 @@ const RegisterModal = () => {
                                 />
                             </span>
                             <h2 className={styles.registerModal__content__title}>Ro’yhatdan o’ting</h2>
-                            <form className={styles.form}>
+                            <form onSubmit={handleSubmit} className={styles.form}>
                                 {
                                     act &&
                                     <label className={styles.inputContainer}>
                                         <select required defaultValue={formData.name} onChange={handleChange} id="courses">
-                                            <option disabled value="">Yowqew wqe</option>
-                                            <option value="1">23123 wqe</option>
-                                            <option value="2">yow312312qew wqe</option>
-                                            <option value="3">yowqe222w wqe</option>
-                                            <option value="4">yowq32122ew wqe</option>
+                                            <option disabled value="">Yo'nalishni tanlang</option>
+                                            {
+                                                !loader ? (
+                                                    coursesData?.map((item, key) => (
+                                                        <option key={key} value={item.id}>{item.title}</option>
+                                                    ))
+                                                ) : (
+                                                    <div className={styles.skeleton__list}>
+                                                        <div className={styles.skeleton__list__item}>p</div>
+                                                        <div className={styles.skeleton__list__item}>p</div>
+                                                        <div className={styles.skeleton__list__item}>p</div>
+                                                        <div className={styles.skeleton__list__item}>p</div>
+                                                        <div className={styles.skeleton__list__item}>p</div>
+                                                    </div>
+                                                )
+                                            }
                                         </select>
                                     </label>
                                 }
@@ -140,7 +255,15 @@ const RegisterModal = () => {
                                         Telefon raqamingizni
                                     </label>
                                 </div>
-                                <button type="submit" className={styles.submitButton}>Joy band qilish</button>
+                                {
+                                    loaderForm ? (
+                                        <div className={styles.load__btn}>
+                                            <span className={styles.load__btn__loader}></span>
+                                        </div>
+                                    ) : (
+                                        <button type="submit" className={styles.submitButton}>Joy band qilish</button>
+                                    )
+                                }
                             </form>
                         </div>
                     </MyContainer>

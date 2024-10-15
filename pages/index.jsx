@@ -16,9 +16,9 @@ const Index = () => {
         <>
             <Head>
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <link rel="icon" href="/favicon.ico" />
+                <link rel="icon" href="/favicon.svg" />
                 <meta name="description" content="GEEKS Andijan - учебный центр для будущих IT-специалистов. Современные курсы программирования, data science и digital marketing." />
-                <meta name="keywords" content="GEEKS, IT-курсы, программирование, digital marketing, data science, веб-разработка" />
+                <meta name="keywords" content="GEEKS, GEEKS Andijan, Front-end, Back-end, Full-stack, IT-курсы, программирование, digital marketing, SMM, data science, веб-разработка" />
                 <meta name="image_src" content='' /> // URL для img
                 <link rel="canonical" href="https://geeks-landing.vercel.app/" />
 

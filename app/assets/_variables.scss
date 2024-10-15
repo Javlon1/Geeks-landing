@@ -26,3 +26,40 @@ $transition: .3s all ease;
         font-size: 1rem;
     }
 }
+
+@mixin skeleton {
+    border-radius: 5px;
+    height: 40px;
+    animation: Skeleton-loading 1s linear infinite alternate;
+
+    @keyframes Skeleton-loading {
+        0% {
+            background-color: hsl(200, 20%, 70%);
+        }
+
+        100% {
+            background-color: hsl(200, 20%, 95%);
+        }
+    }
+}
+
+@mixin loader {
+
+    pointer-events: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: $white;
+    animation: an1 1s ease infinite;
+
+    @keyframes an1 {
+        0% {
+            transform: rotate(0turn);
+        }
+
+        100% {
+            transform: rotate(1turn);
+        }
+    }
+}

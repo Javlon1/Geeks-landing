@@ -1,0 +1,35 @@
+@import '../../../assets/variables';
+
+.messag {
+    max-width: 30rem;
+    position: fixed;
+    z-index: 999999;
+    background-color: transparent;
+    padding: .4rem 1rem;
+    border-radius: 5px;
+    top: 5rem;
+    right: -99rem;
+    margin-left: .5rem;
+    color: $white;
+    font-weight: 500;
+    transition: all .3s;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.messageAct {
+    right: .5rem !important;
+}
+
+.messageWarning {
+    background-color: #F29339;
+}
+
+.messageError {
+    background-color: #FF6A77;
+}
+
+.messageSuccess {
+    background-color: #43ce48;
+}
