@@ -2,7 +2,7 @@ import { createContext, useEffect, useState } from 'react'
 const Context = createContext()
 
 function Provider({ children }) {
-    const [url] = useState("http://192.168.166.253:8000/api");
+    const [url] = useState("https://810967953e08bb234c3b342dc98cad47.serveo.net/api");
     const [close, setClose] = useState(false);
     const [infoModal, setInfoModal] = useState(false);
     const [registerModal, setRegisterModal] = useState(false);
