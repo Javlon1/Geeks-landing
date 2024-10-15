@@ -1,0 +1,195 @@
+@import "../../../../assets/variables";
+
+.forWho {
+    padding: 2rem 0;
+
+    &__content {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 3rem;
+
+        &__title {
+            @include title;
+            font-weight: 700;
+            color: $black;
+            background-color: $blue;
+            padding: .2rem 1rem;
+            text-align: center;
+        }
+
+        &__list1 {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            gap: 1rem;
+            flex-wrap: wrap;
+
+            &__item {
+                min-width: 250px;
+                flex: 1;
+                border-radius: 1rem;
+                padding: 1rem;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+
+                .number {
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    background-color: $black;
+                    color: $white;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 1.1rem;
+                    font-weight: 500;
+                }
+
+                .text {
+                    width: 90%;
+                    margin-top: 1rem;
+                    text-align: center;
+                    font-weight: 500;
+                    font-size: 1.1rem;
+                }
+
+                &:nth-child(1) {
+                    background-color: #FFEBDE;
+                }
+
+                &:nth-child(2) {
+                    background-color: $orange;
+                }
+
+                &:nth-child(3) {
+                    background-color: $violet;
+                }
+            }
+        }
+
+        &__list2 {
+            margin-top: 2rem;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            gap: 1rem;
+            flex-wrap: wrap;
+
+            &__item {
+                width: 49%;
+                border-radius: 1rem;
+                padding: 1rem;
+                display: flex;
+                align-items: start;
+                justify-content: space-between;
+                gap: 2rem;
+                background-color: $light-black;
+
+                .text {
+                    color: $white;
+                    font-size: 1.5rem;
+                    font-weight: 500;
+                    flex: 1;
+                }
+
+                .icon {
+                    width: 100px;
+                    height: 100px;
+                    padding: .5rem;
+                    border-radius: 1rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    img {
+                        width: 100%;
+                        height: auto;
+                    }
+
+                }
+
+                &:nth-child(1) {
+                    .icon {
+                        background-color: $green;
+                    }
+                }
+
+                &:nth-child(2) {
+                    .icon {
+                        background-color: $violet;
+                    }
+                }
+
+                &:nth-child(3) {
+                    .icon {
+                        background-color: $yellow;
+                    }
+                }
+
+                &:nth-child(4) {
+                    .icon {
+                        background-color: $blue;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .forWho {
+        &__content {
+            &__list2 {
+                &__item {
+                    width: 48%;
+                    padding: .5rem;
+
+                    .text {
+                        font-size: 1.2rem;
+                    }
+
+                    .icon {
+                        width: 80px;
+                        height: 80px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .forWho {
+        &__content {
+            &__list2 {
+                &__item {
+                    width: 48%;
+
+                    .text {
+                        font-size: 1rem;
+                    }
+
+                    .icon {
+                        width: 60px;
+                        height: 60px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 575px) {
+    .forWho {
+        &__content {
+            &__list2 {
+                &__item {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

@@ -8,6 +8,7 @@ import komp2 from '../../../../../public/img/svg/komp2.svg'
 import system from '../../../../../public/img/svg/system.svg'
 import mouse from '../../../../../public/img/svg/mouse.svg'
 import usb from '../../../../../public/img/svg/usb.svg'
+import { useRouter } from 'next/router';
 
 
 const Courses = () => {
@@ -15,12 +16,11 @@ const Courses = () => {
         url,
         infoModal,
         registerModal,
-        setInfoModal,
         setCoursesId,
-        coursesId,
     } = useContext(Context);
     const [coursesData, setCoursesData] = useState([]);
     const [loader, setLoader] = useState(true);
+    const router = useRouter()
 
     useEffect(() => {
         const fullUrl = `${url}/courses/`;
@@ -90,7 +90,12 @@ const Courses = () => {
                                         key={key}
                                         onClick={() => {
                                             setCoursesId(item.id)
-                                            setInfoModal(true)
+                                            router.push({
+                                                pathname: '/courses-detail',
+                                                query: {
+                                                    courses_id: item.id
+                                                }
+                                            })
                                         }}
                                         className={styles.courses__content__list__item}
                                     >
@@ -126,7 +131,7 @@ const Courses = () => {
                     </div>
                 </div>
             </MyContainer>
-        </section>
+        </section >
     )
 }
 

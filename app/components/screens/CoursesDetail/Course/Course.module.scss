@@ -1,0 +1,89 @@
+@import '../../../../assets/variables';
+
+.course {
+    padding: 2rem 0;
+
+    &__content {
+        &__header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+            gap: 1rem;
+
+            &__title {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+
+                p {
+                    color: $black;
+                    @include title;
+                    font-weight: 500;
+                    background-color: $blue;
+                    padding: .2rem 1rem;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                }
+            }
+
+            &__btns {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+
+                .btn__next2,
+                .btn__prev2,
+                .btn__next,
+                .btn__prev {
+                    width: 40px;
+                    height: 40px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: $black;
+                    background: $white;
+                    padding: 10px;
+                    border-radius: 10%;
+                    cursor: pointer;
+                }
+            }
+
+        }
+
+        &__cart {
+            height: 130px;
+            padding: .5rem;
+            border-radius: 1rem;
+            border: 2px solid $green;
+            position: relative;
+            display: flex;
+            cursor: pointer;
+            align-items: center;
+            background: $light-black url('../../../../../public/img/bc/course-bc.png') no-repeat center right;
+            transition: $transition;
+
+            h3 {
+                margin-top: 10px;
+                padding: 0 10px;
+                color: $white;
+                font-size: 1.3rem;
+                font-weight: 600;
+                margin-top: -1rem;
+            }
+
+            p {
+                position: absolute;
+                bottom: 1rem;
+                left: 1rem;
+                color: $white;
+                font-weight: 500;
+                font-size: 1.1rem;
+            }
+
+            &:hover {
+                box-shadow: inset 0 0 5px $green;
+            }
+        }
+    }
+}
