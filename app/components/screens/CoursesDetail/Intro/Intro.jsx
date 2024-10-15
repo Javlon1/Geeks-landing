@@ -1,5 +1,3 @@
-import * as React from 'react';
-import Link from 'next/link'
 import Image from 'next/image'
 import styles from './Intro.module.scss'
 import { Context } from '@/app/components/ui/Context/Context';
@@ -7,9 +5,10 @@ import MyContainer from '@/app/components/ui/MyContainer/MyContainer'
 import heart from '../../../../../public/img/svg/heart.svg'
 import InfoModal from '@/app/components/ui/Modal/InfoModal/InfoModal';
 import RegisterModal from '@/app/components/ui/Modal/RegisterModal/RegisterModal';
+import { useContext } from 'react';
 
 const Intro = () => {
-    const { lan } = React.useContext(Context);
+    const { lan } = useContext(Context);
 
     return (
         <section className={styles.intro}>

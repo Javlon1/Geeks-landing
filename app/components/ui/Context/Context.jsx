@@ -12,21 +12,9 @@ function Provider({ children }) {
     const [messageText, setMessageText] = useState('');
     const [coursesId, setCoursesId] = useState(0);
 
-    const [lan, setLan] = useState(() => {
-        const storedLanguage = typeof window !== 'undefined' ? window.localStorage.getItem('lan') : null;
-        return storedLanguage ? storedLanguage : 'ru';
-    });
-
-    useEffect(() => {
-        if (typeof window !== 'undefined') {
-            window.localStorage.setItem('lan', lan);
-        }
-    }, [lan]);
-
     return (
         <Context.Provider value={{
             url,
-            lan, setLan,
             act, setAct,
             close, setClose,
             message, setMessage,

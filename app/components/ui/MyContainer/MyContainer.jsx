@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { Children, cloneElement } from 'react';
 import styles from './MyContainer.module.scss'
 
 
@@ -7,8 +7,8 @@ const MyContainer = ({ children }) => {
     return (
         <div className={styles.myContainer}>
             {
-                React.Children.map(children, (child) => {
-                    return React.cloneElement(child);
+                Children.map(children, (child) => {
+                    return cloneElement(child);
                 })
             }
         </div>

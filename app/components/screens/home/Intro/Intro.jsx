@@ -1,7 +1,6 @@
-import { useContext, useEffect, useState } from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
 import styles from './Intro.module.scss'
-import { Context } from '@/app/components/ui/Context/Context';
 import MyContainer from '@/app/components/ui/MyContainer/MyContainer';
 import up from "../../../../../public/img/icons/up.png";
 import dino from "../../../../../public/img/icons/dino.png";

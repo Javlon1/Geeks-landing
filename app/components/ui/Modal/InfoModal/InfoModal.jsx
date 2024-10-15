@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import Image from 'next/image'
 import styles from './InfoModal.module.scss'
 import { Context } from '@/app/components/ui/Context/Context';

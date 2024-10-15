@@ -1,12 +1,9 @@
 import Link from 'next/link'
-import Image from 'next/image'
 import styles from './Footer.module.scss'
-import { Context } from '@/app/components/ui/Context/Context';
 import MyContainer from '@/app/components/ui/MyContainer/MyContainer'
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 
 const Footer = () => {
-    const { lan } = useContext(Context);
     const [links] = useState([
 
         {

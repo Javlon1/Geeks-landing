@@ -1,4 +1,3 @@
-import * as React from 'react'
 import Head from 'next/head'
 import Intro from '@/app/components/screens/home/Intro/Intro';
 import About from '@/app/components/screens/home/About/About';

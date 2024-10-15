@@ -6,15 +6,12 @@ import { useContext, useEffect } from 'react';
 const Message = ({ messages, type }) => {
     const { message, setMessage } = useContext(Context);
 
-
-    // message Start
     useEffect(() => {
         setTimeout(() => {
             setMessage(false);
         }, 4000);
 
     }, [message]);
-    // message End
 
     const messageClass = () => {
         switch (type) {

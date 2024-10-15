@@ -1,5 +1,3 @@
-import * as React from 'react';
-import Link from 'next/link'
 import Image from 'next/image'
 import styles from './Statistics.module.scss'
 import { Context } from '@/app/components/ui/Context/Context';
@@ -8,9 +6,10 @@ import phone from '../../../../../public/img/svg/phone.svg'
 import pan from '../../../../../public/img/svg/pan.svg'
 import money from '../../../../../public/img/svg/money.svg'
 import container from '../../../../../public/img/svg/container.svg'
+import { useContext } from 'react';
 
 const Statistics = () => {
-    const { lan } = React.useContext(Context);
+    const { lan } = useContext(Context);
     const data = [
         {
             id: 1,

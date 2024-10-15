@@ -32,8 +32,6 @@
                 align-items: center;
                 gap: 10px;
 
-                .btn__next2,
-                .btn__prev2,
                 .btn__next,
                 .btn__prev {
                     width: 40px;
@@ -42,13 +40,31 @@
                     align-items: center;
                     justify-content: center;
                     color: $black;
-                    background: $white;
+                    background: $yellow;
                     padding: 10px;
                     border-radius: 10%;
                     cursor: pointer;
+                    box-shadow: 0 0 6px $yellow;
+
+                    svg {
+                        top: 45%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        position: absolute;
+                        width: 50%;
+                        height: auto;
+                        object-fit: contain;
+                    }
+                }
+
+                .btn__next {
+                    transform: rotate(-90deg);
+                }
+
+                .btn__prev {
+                    transform: rotate(90deg);
                 }
             }
-
         }
 
         &__cart {
